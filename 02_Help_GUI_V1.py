@@ -3,7 +3,7 @@ from tkinter import *
 from functools import partial
 
 
-
+# Base plate for testing the button for Help GUI
 class Quiz:
     def __init__(self):
         print("Help GUI Loaded")

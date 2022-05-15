@@ -32,6 +32,11 @@ class Quiz:
         # Quit button location
         self.quit_button.place(x=35, y=400)
 
+        # Help button
+        self.help_button = ttk.Button(text="Help",
+                                      command=self.helpquiz)
+        self.help_button.place(x=140, y=400)
+
     # Test if button works
     def startquiz(self):
         print("Start demo. This action will start the main quiz.")
@@ -40,6 +45,10 @@ class Quiz:
     def quitquiz(self):
         print("Terminated Quiz")
         exit()
+    # Help Command / Function
+    def helpquiz(self):
+        print("Help placeholder")
+
 
 
 # main routine

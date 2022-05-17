@@ -1,7 +1,13 @@
+"""
+01_Start_GUI_V2
+- Added Red Quit Button
+"""
+
 # Import gui library
 from tkinter import *
 
 
+# Main GUI Start
 class Quiz:
     def __init__(self):
         # Formatting Variables

@@ -1,7 +1,13 @@
+"""
+01_Start_GUI_V1
+- Made the VERY basic main GUI with placeholder Start Function.
+"""
+
 # Import gui library
 from tkinter import *
 
 
+# Main GUI Start
 class Quiz:
     def __init__(self):
         # Formatting Variables

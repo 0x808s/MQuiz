@@ -1,12 +1,9 @@
 """
-01_Start_GUI_V3:
-Imported AZURE Tkinter Theme. Cleaned up the GUI
-and made the GUI look alot more modern
+02_Help_GUI_V2:
+Fixed Issue where dismiss button won't show up.
 """
-
-# Import Tkinter
 from tkinter import *
-# import partial from functools
+# import functools
 from functools import partial
 # Ttk as ttk
 import tkinter.ttk as ttk
@@ -66,6 +63,8 @@ class Help:
         self.dismiss_btn = ttk.Button(self.help_frame, text="Dismiss",
                                       width=10,
                                       command=partial(self.close_help, partner))
+        self.dismiss_btn.grid(row=2, pady=20)
+        
 
 
     def close_help(self, partner):
@@ -77,7 +76,6 @@ class Help:
 if __name__ == "__main__":
     root = Tk()
     root.title("HELP GUI TESTER")
-    # Import Azure theme DARK
     root.tk.call("source", "azure.tcl")
     root.tk.call("set_theme", "dark")
     something = Quiz()

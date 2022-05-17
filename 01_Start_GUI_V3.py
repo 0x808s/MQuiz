@@ -1,8 +1,16 @@
+"""
+01_Start_GUI_V3:
+Imported AZURE Tkinter Theme. Cleaned up the GUI
+and made the GUI look alot more modern
+"""
+
 
 # Import gui library (tkinter)
 from tkinter import *
 import tkinter.ttk as ttk
 
+
+# Main GUI Start
 class Quiz:
     def __init__(self):
         # Formatting Variables

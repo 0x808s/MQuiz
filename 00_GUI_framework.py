@@ -1,5 +1,8 @@
+"""
+00_GUI_framework:
+Basic Template for tkinter Window.
+"""
 from tkinter import *
-import random
 
 
 class Foo:

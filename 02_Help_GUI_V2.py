@@ -64,8 +64,6 @@ class Help:
                                       width=10,
                                       command=partial(self.close_help, partner))
         self.dismiss_btn.grid(row=2, pady=20)
-        
-
 
     def close_help(self, partner):
         partner.help_button.config(state=NORMAL)

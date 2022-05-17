@@ -67,7 +67,6 @@ class Help:
                                       width=10,
                                       command=partial(self.close_help, partner))
 
-
     def close_help(self, partner):
         partner.help_button.config(state=NORMAL)
         self.help_box.destroy()

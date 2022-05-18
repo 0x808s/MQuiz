@@ -1,15 +1,15 @@
 """
-01_Start_GUI_V4:
-Changed Title Labels to make it fit the social implication,
-added the Instruction text.
-added help button to further help users navigate program.
+01_Start_GUI_V5:
+Added a picture for further aesthetics.
 """
 
 # Import gui library (tkinter)
 import tkinter
 from tkinter import *
 import tkinter.ttk as ttk
-import PIL.ImageTk, PIL.Image
+# Import Pillow for Images Manipulation
+import PIL.Image
+from PIL import ImageTk
 
 
 # Start Quiz Placeholder function
@@ -30,13 +30,21 @@ def help_quiz():
 
 # Main GUI Start
 class Quiz:
-    def __init__(self):
+    def __init__(self, root):
+        gui_picture = ImageTk.PhotoImage(PIL.Image.open("MaoriWarrior1.png"))
+
         # Formatting Variables
         print("Quiz Loaded")
 
         # Quiz start GUI
         self.quiz_frame = Frame(width=500, height=500)
         self.quiz_frame.grid()
+        # Adding Image
+        image1 = Label(root, image=gui_picture)
+        image1.place(x=0, y=25, relwidth=1, relheight=1)
+        # Show Image Layer
+        image1.photo = gui_picture
+
         # Quiz title main (Maori Quiz)
         self.quiz_label = Label(text="Simple Māori Quiz!",
                                 font=("Arial", "16", "bold"))
@@ -64,18 +72,17 @@ class Quiz:
         self.help_button = ttk.Button(text="Help",
                                       command=help_quiz)
         self.help_button.place(x=140, y=400)
-        img = PIL.ImageTk.PhotoImage(PIL.Image.open("MaoriPicture.png"))
-        self.image = ttk.Label(root, image=img)
-        self.image.place(x=100, y=100)
 
 
 # main routine
 if __name__ == "__main__":
     root = Tk()
+    # name of window
     root.title("Basic Beginner Maori Quiz")
+    # size of window
     root.geometry("500x500")
     # Importing Azure theme for tkinter (dark)
     root.tk.call("source", "azure.tcl")
     root.tk.call("set_theme", "dark")
-    something = Quiz()
+    something = Quiz(root)
     root.mainloop()

@@ -1,8 +1,10 @@
 """
-01_Start_GUI_V5:
-Added a picture for further aesthetics.
-Prevents Users from resizing window to prevent
-rendering errors for the image.
+01_Start_GUI_V6:
+changed root name to start_gui to make it
+easier to find and understand
+Removed "something = Quiz(start_gui)"
+it was unnecessary.
+
 """
 
 # Import gui library (tkinter)
@@ -14,7 +16,7 @@ import PIL.Image
 from PIL import ImageTk
 
 
-# Start Quiz Placeholder function
+# Start Quiz
 def start_quiz():
     print("Start demo. This action will start the main quiz.")
 
@@ -32,7 +34,7 @@ def help_quiz():
 
 # Main GUI Start
 class Quiz:
-    def __init__(self, root):
+    def __init__(self, start_gui):
         gui_picture = ImageTk.PhotoImage(PIL.Image.open("MaoriWarrior1.png"))
 
         # Formatting Variables
@@ -42,7 +44,7 @@ class Quiz:
         self.quiz_frame = Frame(width=500, height=500)
         self.quiz_frame.grid()
         # Adding Image
-        image1 = Label(root, image=gui_picture)
+        image1 = Label(start_gui, image=gui_picture)
         image1.place(x=0, y=25, relwidth=1, relheight=1)
         # Show Image Layer
         image1.photo = gui_picture
@@ -59,7 +61,7 @@ class Quiz:
                                                  "to exit the program. Select 'Help' to receive more instructions.")
         self.introduction_label.place(x=20, y=100)
         # Start Button
-        self.start_button = ttk.Button(root, text="Start Quiz",
+        self.start_button = ttk.Button(start_gui, text="Start Quiz",
                                        command=start_quiz)
 
         # Start Button location
@@ -78,15 +80,14 @@ class Quiz:
 
 # main routine
 if __name__ == "__main__":
-    root = Tk()
+    start_gui = Tk()
     # name of window
-    root.title("Basic Beginner Maori Quiz")
+    start_gui.title("Basic Beginner Maori Quiz")
     # size of window
-    root.geometry("500x500")
-    # Prevent Users from resizing window.
-    root.resizable(False, False)
+    start_gui.geometry("500x500")
+    start_gui.resizable(False, False)
     # Importing Azure theme for tkinter (dark)
-    root.tk.call("source", "azure.tcl")
-    root.tk.call("set_theme", "dark")
-    something = Quiz(root)
-    root.mainloop()
+    start_gui.tk.call("source", "azure.tcl")
+    start_gui.tk.call("set_theme", "dark")
+    Quiz(start_gui)
+    start_gui.mainloop()

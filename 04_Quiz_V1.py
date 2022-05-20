@@ -38,7 +38,7 @@ quiz_title = Label(quiz_frame, text="Māori Quiz",
                    font=("Proggy", "24", "bold"))
 quiz_title.place(x=400, y=0)
 # JSON open
-with open('questionsJSON.JSON') as x:
+with open('QnA.JSON') as x:
     obj = json.load(x)
 questions = (obj['questions'])
 options = (obj['options'])

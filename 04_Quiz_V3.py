@@ -1,14 +1,7 @@
 """
-04_Quiz_V2:
-Fixing Error After finishing final question
-Optimized Starting GUI location to my laptop instead of
-my monitor.
-Issues:
-Users can skip questions by not clicking on
-any radio buttons and clicking next question.
-Nothing happens after pressing ok on popup
-box and if pressing next after finished quiz
-users will have an error (List index out of range)
+04_Quiz_V3:
+Fixing issue with users pressing next after
+finishing quiz. (placeholder Quit Quiz)
 
 """
 
@@ -134,6 +127,7 @@ class MaoriQuiz:
         wrong = "Wrong Answers: " + str(wrong_ans)
         # Show results in popup box
         messagebox.showinfo("RESULT", "\n".join([result, correct, wrong]))
+        m_quiz.destroy()
 
 
 quiz = MaoriQuiz()

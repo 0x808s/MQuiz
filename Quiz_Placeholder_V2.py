@@ -15,6 +15,7 @@ import PIL.Image
 from PIL import ImageTk
 # importing json for questions
 import json
+from tkinter import messagebox
 
 
 def quiz_start():
@@ -24,8 +25,9 @@ def quiz_start():
     m_quiz.call("set_theme", "dark")
     # Naming Window
     m_quiz.title("Basic Beginner Maori Quiz")
-    # Setting size and start location
-    m_quiz.geometry("1000x600+400+150")
+    # Setting size and start location (Optimized for my laptop)
+    # Laptop resolution: 1368x780
+    m_quiz.geometry("1000x600+200+50")
     m_quiz.resizable(False, False)
     quiz_frame = Frame(m_quiz)
     quiz_frame.pack(fill=BOTH, expand=YES)
@@ -37,7 +39,7 @@ def quiz_start():
                        font=("Proggy", "24", "bold"))
     quiz_title.place(x=400, y=0)
     # JSON open
-    with open('questionsJSON.JSON') as x:
+    with open('QnA.JSON') as x:
         obj = json.load(x)
     questions = (obj['questions'])
     options = (obj['options'])
@@ -112,7 +114,22 @@ def quiz_start():
             if self.check_ans(self.question_number):
                 self.correct_ans += 1
             self.question_number += 1
-            self.display_options(self.question_number)
+            if self.question_number == len(questions):
+                self.display_result()
+            else:
+                self.display_options(self.question_number)
+
+        # Display results fix
+        def display_result(self):
+            # Score calculation
+            score = int(self.correct_ans / len(questions) * 100)
+            result = "Final Results: " + str(score) + "%"
+            wrong_ans = len(questions) - self.correct_ans
+            correct = "Correct Answers: " + str(self.correct_ans)
+            wrong = "Wrong Answers: " + str(wrong_ans)
+            # Show results in popup box
+            messagebox.showinfo("RESULT", "\n".join([result, correct, wrong]))
+            m_quiz.destroy()
 
     quiz = MaoriQuiz()
     m_quiz.mainloop()

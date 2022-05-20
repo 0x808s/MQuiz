@@ -1,7 +1,9 @@
 """
-01_Start_GUI_V3:
-Imported AZURE Tkinter Theme. Cleaned up the GUI
-and made the GUI look alot more modern
+02_Help_GUI_V1:
+changed method of showing help
+to an actual tkinter window instead
+of a msg box.
+
 """
 
 # Import Tkinter

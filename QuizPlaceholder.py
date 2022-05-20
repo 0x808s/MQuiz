@@ -1,9 +1,11 @@
 """
-03_Quiz_GUI_V1:
-Created a test window with button to
-start the main quiz gui.
+QuizPlaceholder:
+This file is used to demonstrate my
+method of creating the Main Quiz GUI
+for 03_Quiz_GUI_V(x)
 
 """
+
 # Import the required libraries
 import tkinter
 from tkinter import *
@@ -11,28 +13,11 @@ import tkinter.ttk as ttk
 # Import Pillow for Images Manipulation
 import PIL.Image
 from PIL import ImageTk
-# Import Json
+# importing json for questions
 import json
 
-# Create an instance of tkinter frame
-test_window = Tk()
-test_window.title("Main Quiz Launcher")
 
-# Set the geometry of test frame
-test_window.geometry("600x250")
-
-# Create a frame
-frame = Frame(test_window)
-frame.pack(side="top", expand=True, fill="both")
-
-# Create a text label
-Label(frame, text="MAIN QUIZ TESTER", font=('Helvetica', 20)).pack(pady=20)
-
-
-def start_quiz():
-    print("Start demo. This action will start the main quiz.")
-    # Deleting Start_gui window.
-    test_window.destroy()
+def quiz_start():
     # Making new window containing quiz.
     m_quiz = Tk()
     # Import Azure theme
@@ -54,9 +39,3 @@ def start_quiz():
     quiz_title.place(x=400, y=0)
 
     m_quiz.mainloop()
-
-
-# Create a button to close the window
-Button(frame, text="Start Quiz", font=('Helvetica bold', 10), command=start_quiz).pack(pady=20)
-
-test_window.mainloop()

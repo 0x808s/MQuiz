@@ -15,7 +15,7 @@ from PIL import ImageTk
 import json
 # Import My other Python file QuizPlaceholder
 # Contains Function for the main quiz.
-from QuizPlaceholder import *
+from Quiz_Placeholder_V1 import *
 
 # Create an instance of tkinter frame
 test_window = Tk()

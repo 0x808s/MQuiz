@@ -10,8 +10,9 @@ from PIL import ImageTk
 # Import JSON
 import json
 # Import Quiz File
-from Quiz_Placeholder_V2 import *
+from Quiz_Placeholder_V3 import *
 from functools import partial
+from tkinter import filedialog
 
 
 # Main GUI Start

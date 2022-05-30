@@ -1,11 +1,8 @@
 """
-04_Quiz_V4:
-Added Export Results button.
-WIP.
-Exporting Results gives users the option to
-save their results in a text file
-containing their percentage and correct / incorrect
-questions.
+04_Quiz_V5:
+Removed Export Button in main quiz
+Applied export button in Result GUI instead
+Added a placeholder result GUI.
 """
 
 # Import the required libraries
@@ -15,9 +12,9 @@ import tkinter.ttk as ttk
 # Import Pillow for Images Manipulation
 import PIL.Image
 from PIL import ImageTk
-# importing json for questions
+# Importing json for questions
 import json
-from tkinter import messagebox
+# Import File Dialog for exports
 from tkinter import filedialog
 
 m_quiz = Tk()
@@ -105,9 +102,6 @@ class MaoriQuiz:
         quit_button = ttk.Button(m_quiz, text='Quit Quiz',
                                  command=m_quiz.destroy)
         quit_button.place(x=200, y=500)
-        export_button = ttk.Button(m_quiz, text="export results",
-                                   command=self.exportres)
-        export_button.place(x=300, y=500)
 
     # Placeholder answer check
     def check_ans(self, question_number):
@@ -124,8 +118,53 @@ class MaoriQuiz:
         else:
             self.display_options(self.question_number)
 
-    # Export Results
-    def exportres(self):
+    # Export Results in Result GUI instead
+
+    # Display results fix
+    def display_result(self):
+        # Show results in separate GUI
+        self.get_result()
+
+    # Result GUI
+    def get_result(self):
+        m_quiz.destroy()
+        # Score calculation
+        score = int(self.correct_ans / len(questions) * 100)
+        result = "Final Results: " + str(score) + "%"
+        wrong_ans = len(questions) - self.correct_ans
+        correct = "Correct Answers: " + str(self.correct_ans)
+        wrong = "Wrong Answers: " + str(wrong_ans)
+        r_gui = Tk()
+        print("Get results")
+        # Import Azure theme
+        r_gui.call("source", "azure.tcl")
+        r_gui.call("set_theme", "dark")
+        # Naming Window
+        r_gui.title("Result Screen")
+        # Setting size and start location (Optimized for my laptop)
+        # Laptop resolution: 1368x780
+        r_gui.geometry("500x600+200+50")
+        r_gui.resizable(False, False)
+        r_frame = Frame(r_gui)
+        r_frame.pack(fill=BOTH, expand=YES)
+        # Render Watermark
+        watermark2 = ImageTk.PhotoImage(PIL.Image.open("MaoriWarrior1.png"))
+        image3 = Label(r_frame, image=watermark2)
+        image3.place(x=150, y=200, relwidth=1, relheight=1)
+        r_title = Label(r_frame, text="Final Results (PLACEHOLDER)",
+                        font=("Proggy", "16", "bold"))
+        r_title.place(x=100, y=0)
+        # Labels for displaying user score
+        r_score = Label(r_frame, text="Score: xxx(placeholder)")
+        r_score.place(x=100, y=50)
+        # Export Btn
+        r_export = ttk.Button(r_frame, text="Export",
+                              command=self.export_result)
+        r_export.place(x=100, y=400)
+        r_gui.mainloop()
+
+    # Export Results Function
+    def export_result(self):
         score = int(self.correct_ans / len(questions) * 100)
         result = "Final Results: " + str(score) + "%"
         wrong_ans = len(questions) - self.correct_ans
@@ -136,18 +175,6 @@ class MaoriQuiz:
                                                 defaultextension=".txt")
         my_file = open(filename, "w+", encoding="utf-8")
         my_file.write(f"This is so based {result, correct, wrong}")
-
-    # Display results fix
-    def display_result(self):
-        # Score calculation
-        score = int(self.correct_ans / len(questions) * 100)
-        result = "Final Results: " + str(score) + "%"
-        wrong_ans = len(questions) - self.correct_ans
-        correct = "Correct Answers: " + str(self.correct_ans)
-        wrong = "Wrong Answers: " + str(wrong_ans)
-        # Show results in popup box
-        messagebox.showinfo("RESULT", "\n".join([result, correct, wrong]))
-        m_quiz.destroy()
 
 
 quiz = MaoriQuiz()

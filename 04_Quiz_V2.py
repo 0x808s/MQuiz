@@ -4,8 +4,6 @@ Fixing Error After finishing final question
 Optimized Starting GUI location to my laptop instead of
 my monitor.
 Issues:
-Users can skip questions by not clicking on
-any radio buttons and clicking next question.
 Nothing happens after pressing ok on popup
 box and if pressing next after finished quiz
 users will have an error (List index out of range)

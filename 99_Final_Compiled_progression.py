@@ -10,7 +10,7 @@ from PIL import ImageTk
 # Import JSON
 import json
 # Import Quiz File
-from Quiz_Placeholder_V3 import *
+from Quiz_Placeholder_V4 import *
 from functools import partial
 from tkinter import filedialog
 
@@ -22,7 +22,7 @@ class Quiz:
         def help_quiz():
             print("you asked for help")
             get_help = Help(self)
-            get_help.help_text.configure(text="HelpText")
+            get_help.help_text.configure(text="Seems like you are having issues with the program, ")
 
         # Quit Quiz Function
         def quit_quiz():

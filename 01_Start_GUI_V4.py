@@ -64,7 +64,7 @@ class Quiz:
         self.help_button = ttk.Button(text="Help",
                                       command=help_quiz)
         self.help_button.place(x=140, y=400)
-        img = PIL.ImageTk.PhotoImage(PIL.Image.open("MaoriPicture.png"))
+        img = PIL.ImageTk.PhotoImage(PIL.Image.open("MaoriWarrior1.png"))
         self.image = ttk.Label(root, image=img)
         self.image.place(x=100, y=100)
 

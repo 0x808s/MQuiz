@@ -1,6 +1,7 @@
 """
-02_Help_GUI_V3:
-Added real help text.
+02_Help_GUI_V4:
+Final Help menu with
+full help text.
 """
 from tkinter import *
 # import functools
@@ -35,8 +36,16 @@ class Quiz:
     def help_quiz(self):
         print("you asked for help")
         get_help = Help(self)
-        get_help.help_text.configure(text="Seems like you are having issues with the program"
-                                          "")
+        get_help.help_text.configure(text="First time playing? \n"
+                                          "These instructions may help!\n"
+                                          "Press the 'Start button' to start the quiz.\n"
+                                          "Press the 'Quit' button anytime to quit the quiz.\n"
+                                          "In the quiz, Press 'Next question' to proceed.\n"
+                                          "In the result menu, press the 'export' button\n"
+                                          "to export your results.\n"
+                                          "\n"
+                                          "\n"
+                                          "Have fun!")
 
 
 class Help:
@@ -51,7 +60,7 @@ class Help:
         self.help_frame.grid()
 
         # Help heading
-        self.how_heading = Label(self.help_frame, text="help/instructions",
+        self.how_heading = Label(self.help_frame, text="Help menu",
                                  font="arial 10 bold")
         self.how_heading.grid(row=0)
 
@@ -61,7 +70,7 @@ class Help:
         self.help_text.grid(row=1)
 
         # Dismiss button
-        self.dismiss_btn = ttk.Button(self.help_frame, text="Dismiss",
+        self.dismiss_btn = ttk.Button(self.help_frame, text="OK, Got it.",
                                       width=10,
                                       command=partial(self.close_help, partner))
         self.dismiss_btn.grid(row=2, pady=20)

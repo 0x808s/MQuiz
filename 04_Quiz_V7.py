@@ -1,10 +1,8 @@
 """
-04_Quiz_V6:
-Randomizer!
-Made quiz randomized with different
-order of questions every time making
-quiz more replayable and effective for
-end users.
+04_Quiz_V7:
+Adding dynamic question numbers
+to questions so users can see
+what q number they are up to.
 """
 
 # Import the required libraries
@@ -27,6 +25,10 @@ class MaoriQuiz:
     def __init__(self):
         # Question number and The Questions
         self.question_number = 0
+        # Quiz number in V7 showing users what q they are on
+        self.quiz_number = 1
+        # Quiz number string for label.
+        self.quiz_str = StringVar()
         self.question = self.question(self.question_number)
         # Radio Buttons for selection
         self.option_selected = IntVar()
@@ -38,7 +40,9 @@ class MaoriQuiz:
 
     # Display questions
     def question(self, question_number):
-        question_number = Label(m_quiz, text=questions[question_number],
+        self.quiz_str.set(str(self.quiz_number)+". "+questions[question_number])
+        # Changed to get question numbers on each question.
+        question_number = Label(m_quiz, textvariable=self.quiz_str,
                                 font=("Proggy", 16, "bold"), anchor="center")
         question_number.place(x=350, y=120)
         return question_number
@@ -52,7 +56,8 @@ class MaoriQuiz:
         y_pos = 200
         # Whileloop for Ans
         while quiz_value < 4:
-            btns = ttk.Radiobutton(m_quiz, text="", variable=self.option_selected,
+            btns = ttk.Radiobutton(m_quiz, text="",
+                                   variable=self.option_selected,
                                    value=quiz_value + 1)
             opt_list.append(btns)
             btns.place(x=300, y=y_pos)
@@ -89,9 +94,12 @@ class MaoriQuiz:
         if self.check_ans(self.question_number):
             self.correct_ans += 1
         self.question_number += 1
+        self.quiz_number += 1
+
         if self.question_number == len(questions):
             self.display_result()
         else:
+            self.quiz_str.set(str(self.quiz_number)+". "+questions[self.question_number])
             self.display_options(self.question_number)
 
     # Export Results in Result GUI instead

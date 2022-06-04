@@ -17,42 +17,8 @@ from tkinter import filedialog
 # Import random for question randomizer
 import random
 
-def quiz_start():
-    m_quiz = Tk()
-    # Import Azure theme
-    m_quiz.call("source", "azure.tcl")
-    m_quiz.call("set_theme", "dark")
-    # Naming Window
-    m_quiz.title("Basic Beginner Maori Quiz")
-    # Setting size and start location (Optimized for my laptop)
-    # Laptop resolution: 1368x780
-    m_quiz.geometry("1000x600+200+50")
-    m_quiz.resizable(False, False)
-    quiz_frame = Frame(m_quiz)
-    quiz_frame.pack(fill=BOTH, expand=YES)
-    # Render Watermark
-    watermark = ImageTk.PhotoImage(PIL.Image.open("MaoriWarrior1.png"))
-    image2 = Label(quiz_frame, image=watermark)
-    image2.place(x=450, y=200, relwidth=1, relheight=1)
-    quiz_title = Label(quiz_frame, text="Māori Quiz",
-                       font=("Proggy", "24", "bold"))
-    quiz_title.place(x=400, y=0)
-    # JSON open
-    with open('QnA_Randomized.JSON') as x:
-        obj = json.load(x)
-    questions = (obj['questions'])
-    options = (obj['options'])
-    answers = (obj['answers'])
-    # Combine lists to randomize properly
-    zipper = zip(questions, answers, options)
-    quiz_list = list(zipper)
-    random.shuffle(quiz_list)
-    questions, answers, options = zip(*quiz_list)
-    # Test if loaded (PLACEHOLDER DELETE)
-    print(questions)
-    print(options)
-    print(answers)
 
+def quiz_start():
     # Make quiz class
     class MaoriQuiz:
         def __init__(self):
@@ -184,6 +150,41 @@ def quiz_start():
                                                     defaultextension=".txt")
             my_file = open(filename, "w+", encoding="utf-8")
             my_file.write(f"This is so based {result, correct, wrong}")
+
+    m_quiz = Tk()
+    # Import Azure theme
+    m_quiz.call("source", "azure.tcl")
+    m_quiz.call("set_theme", "dark")
+    # Naming Window
+    m_quiz.title("Basic Beginner Maori Quiz")
+    # Setting size and start location (Optimized for my laptop)
+    # Laptop resolution: 1368x780
+    m_quiz.geometry("1000x600+200+50")
+    m_quiz.resizable(False, False)
+    quiz_frame = Frame(m_quiz)
+    quiz_frame.pack(fill=BOTH, expand=YES)
+    # Render Watermark
+    watermark = ImageTk.PhotoImage(PIL.Image.open("MaoriWarrior1.png"))
+    image2 = Label(quiz_frame, image=watermark)
+    image2.place(x=450, y=200, relwidth=1, relheight=1)
+    quiz_title = Label(quiz_frame, text="Māori Quiz",
+                       font=("Proggy", "24", "bold"))
+    quiz_title.place(x=400, y=0)
+    # JSON open
+    with open('QnA_Randomized.JSON') as x:
+        obj = json.load(x)
+    questions = (obj['questions'])
+    options = (obj['options'])
+    answers = (obj['answers'])
+    # Combine lists to randomize properly
+    zipper = zip(questions, answers, options)
+    quiz_list = list(zipper)
+    random.shuffle(quiz_list)
+    questions, answers, options = zip(*quiz_list)
+    # Test if loaded (PLACEHOLDER DELETE)
+    print(questions)
+    print(options)
+    print(answers)
 
     quiz = MaoriQuiz()
     m_quiz.mainloop()

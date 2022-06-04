@@ -16,22 +16,6 @@ import PIL.Image
 from PIL import ImageTk
 
 
-# Start Quiz
-def start_quiz():
-    print("Start demo. This action will start the main quiz.")
-
-
-# Quit Quiz Function
-def quit_quiz():
-    print("Terminated Quiz")
-    exit()
-
-
-# Help function placeholder
-def help_quiz():
-    print("Help placeholder / Start help GUI")
-
-
 # Main GUI Start
 class Quiz:
     def __init__(self, start_gui):
@@ -76,6 +60,22 @@ class Quiz:
         self.help_button = ttk.Button(text="Help",
                                       command=help_quiz)
         self.help_button.place(x=140, y=400)
+
+
+# Start Quiz
+def start_quiz():
+    print("Start demo. This action will start the main quiz.")
+
+
+# Quit Quiz Function
+def quit_quiz():
+    print("Terminated Quiz")
+    exit()
+
+
+# Help function placeholder
+def help_quiz():
+    print("Help placeholder / Start help GUI")
 
 
 # main routine

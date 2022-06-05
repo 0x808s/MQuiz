@@ -41,9 +41,8 @@ class Quiz:
             start_gui.destroy()
             quiz_start()
 
+        # Watermark Picture
         gui_picture = ImageTk.PhotoImage(PIL.Image.open("MaoriWarrior1.png"))
-
-        print("Quiz Loaded")
 
         # Quiz start GUI
         self.quiz_frame = Frame(width=500, height=500)

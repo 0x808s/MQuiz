@@ -1,0 +1,28 @@
+{
+    "questions": [
+        "1. What is te reo Maori for ocean?",
+        "2. What is te reo Maori for blue?",
+        "3. What is te reo Maori for car?",
+        "4. What is te reo Maori for computer?",
+        "5. What is the translation for 'hei tiki'?",
+        "6. What is te reo Maori for telephone?",
+        "7. What is te reo Maori for basketball?",
+        "8. What is te reo Maori for keyboard?",
+        "9. What is te reo Maori for swimming?",
+        "10. What is te reo Maori for glasses?"
+    ],
+    "options": [
+        ["Moana","Awa","Katao","Maunga"],
+        ["karaka","ma","kowhai","kahurangi"],
+        ["whero","motoka","poti","tokoiwa"],
+        ["rorohiko","aroha","kitara","hakinakina"],
+        ["ear pendant","good luck charm","neck pendant of human form","football"],
+        ["koha","karakia","waea","manuhiri"],
+        ["motu","poitukohu","pounamu","rangatira"],
+        ["papapatuhi","wahine","waka","whakapapa"],
+        ["whanau","whenua","kauhoe","tangi"],
+        ["tamariki","mowhiti","taihoa","rangatira"]
+    ],
+    "answers": [1,4,2,1,3,3,2,1,3,2]
+
+}

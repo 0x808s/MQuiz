@@ -19,6 +19,7 @@ from tkinter import messagebox
 import random
 
 
+# Quiz start function to be called in MQuiz.py
 def quiz_start():
     # Make quiz class
     class MaoriQuiz:
@@ -84,7 +85,7 @@ def quiz_start():
                                      command=m_quiz.destroy)
             quit_button.place(x=200, y=500)
 
-        # Placeholder answer check
+        # answer check
         def check_ans(self, question_number):
             if self.option_selected.get() == answers[question_number]:
                 return True
@@ -173,7 +174,7 @@ def quiz_start():
             my_file = open(filename, "w+", encoding="utf-8")
             my_file.write(f"Results: {result, correct, wrong}")
 
-        # Not using anything from class.
+        # Not using anything from the quiz_start class.
         # Keeping code here for management
         @staticmethod
         def quit_results():
@@ -194,14 +195,14 @@ def quiz_start():
     quiz_frame = Frame(m_quiz)
     quiz_frame.pack(fill=BOTH, expand=YES)
     # Render Watermark
-    watermark = ImageTk.PhotoImage(PIL.Image.open("../MaoriWarrior1.png"))
+    watermark = ImageTk.PhotoImage(PIL.Image.open("MaoriWarrior1.png"))
     image2 = Label(quiz_frame, image=watermark)
     image2.place(x=450, y=200, relwidth=1, relheight=1)
     quiz_title = Label(quiz_frame, text="Māori Quiz",
                        font=("Proggy", "24", "bold"))
     quiz_title.place(x=400, y=0)
     # JSON open
-    with open('../QnA_Randomized.JSON') as x:
+    with open('QnA_Randomized.JSON') as x:
         obj = json.load(x)
     questions = (obj['questions'])
     options = (obj['options'])
@@ -211,10 +212,10 @@ def quiz_start():
     quiz_list = list(zipper)
     random.shuffle(quiz_list)
     questions, answers, options = zip(*quiz_list)
-    # DEBUGGER (Deleted later)
-    print(questions)
-    print(options)
-    print(answers)
+    # DEBUGGER (Deleted)
+    # print(questions)
+    # print(options)
+    # print(answers)
 
     quiz = MaoriQuiz()
     m_quiz.mainloop()

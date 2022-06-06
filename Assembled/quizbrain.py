@@ -41,10 +41,12 @@ def quiz_start():
 
         # Display questions
         def question(self, question_number):
-            self.quiz_str.set(str(self.quiz_number) + ". " + questions[question_number])
+            self.quiz_str.set(str(
+                self.quiz_number) + ". " + questions[question_number])
             # Changed to get question numbers on each question.
             question_number = Label(m_quiz, textvariable=self.quiz_str,
-                                    font=("Proggy", 16, "bold"), anchor="center")
+                                    font=("Proggy",
+                                          16, "bold"), anchor="center")
             question_number.place(x=350, y=120)
             return question_number
 
@@ -100,7 +102,8 @@ def quiz_start():
             if self.question_number == len(questions):
                 self.display_result()
             else:
-                self.quiz_str.set(str(self.quiz_number) + ". " + questions[self.question_number])
+                self.quiz_str.set(str(self.quiz_number) +
+                                  ". " + questions[self.question_number])
                 self.display_options(self.question_number)
 
         # Export Results in Result GUI instead
@@ -133,7 +136,8 @@ def quiz_start():
             r_frame = Frame(r_gui)
             r_frame.pack(fill=BOTH, expand=YES)
             # Render Watermark
-            watermark2 = ImageTk.PhotoImage(PIL.Image.open("MaoriWarrior1.png"))
+            watermark2 = ImageTk.PhotoImage(PIL.Image.open
+                                            ("MaoriWarrior1.png"))
             image3 = Label(r_frame, image=watermark2)
             image3.place(x=150, y=200, relwidth=1, relheight=1)
             r_title = Label(r_frame, text="Final Results:",
@@ -179,7 +183,8 @@ def quiz_start():
         @staticmethod
         def quit_results():
             tkinter.messagebox.showinfo(title="Thank You",
-                                        message="Thanks for playing, have a nice day!")
+                                        message="Thanks for playing,"
+                                                " have a nice day!")
             exit()
 
     m_quiz = Tk()

@@ -21,10 +21,15 @@ class Quiz:
             get_help = Help(self)
             get_help.help_text.configure(text="First time playing? \n"
                                               "These instructions may help!\n"
-                                              "Press the 'Start button' to start the quiz.\n"
-                                              "Press the 'Quit' button anytime to quit the quiz.\n"
-                                              "In the quiz, Press 'Next question' to proceed.\n"
-                                              "In the result menu, press the 'export' button\n"
+                                              "Press the 'Start button' "
+                                              "to start the quiz.\n"
+                                              "Press the 'Quit' "
+                                              "button anytime "
+                                              "to quit the quiz.\n"
+                                              "In the quiz, Press "
+                                              "'Next question' to proceed.\n"
+                                              "In the result menu, "
+                                              "press the 'export' button\n"
                                               "to export your results.\n"
                                               "\n"
                                               "\n"
@@ -58,11 +63,17 @@ class Quiz:
                                 font=("Arial", "16", "bold"))
         self.quiz_label.place(x=150, y=30)
         # Introduction text
-        self.introduction_label = ttk.Label(text="Kia Ora, Hello!, this is a simple quiz to help you learn"
+        self.introduction_label = ttk.Label(text="Kia Ora, Hello!, this is a "
+                                                 "simple quiz to "
+                                                 "help you learn"
                                                  " Basic Te Reo Māori.\n"
-                                                 "To get started, please select the 'Start Quiz' button."
+                                                 "To get started, "
+                                                 "please select the "
+                                                 "'Start Quiz' button."
                                                  " Or use 'Quit Quiz' \n"
-                                                 "to exit the program. Select 'Help' to receive more instructions.")
+                                                 "to exit the program. "
+                                                 "Select 'Help' to receive "
+                                                 "more instructions.")
         self.introduction_label.place(x=20, y=100)
         # Start Button
         self.start_button = ttk.Button(start_gui, text="Start Quiz",
@@ -88,7 +99,8 @@ class Help:
         partner.help_button.config(state=DISABLED)
         # Sets up child window
         self.help_box = Toplevel()
-        self.help_box.protocol('WM_DELETE_WINDOW', partial(self.close_help, partner))
+        self.help_box.protocol('WM_DELETE_WINDOW',
+                               partial(self.close_help, partner))
         # GUI FRAME
         self.help_frame = Frame(self.help_box, width=300)
         self.help_frame.grid()
@@ -106,7 +118,8 @@ class Help:
         # Dismiss button
         self.dismiss_btn = ttk.Button(self.help_frame, text="Dismiss",
                                       width=10,
-                                      command=partial(self.close_help, partner))
+                                      command=partial(self.close_help,
+                                                      partner))
         self.dismiss_btn.grid(row=2, pady=20)
 
     def close_help(self, partner):
